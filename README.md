@@ -98,6 +98,12 @@ spy('hello', 'world')
 expect(spy).toHaveBeenCalled();
 expect(spy).toHaveBeenCalledWith('hello', 'world');
 ```
+_Spying on Class instances_
+Not the best way to spy on class instances, but if needed you can spy on the prototype. If you have to spy like this, you should really consider rewriting your code to make it easier to test (i.e. dependency indjection)
+
+```js
+spyOn(ClassName.prototype, 'instanceFunction');
+```
 
 #### Asynchronus Specs
 You can pass in a `done` variable that can be called to signal that an asynchronous test is complete. This can be done for the `beforeEach`, `it`, `afterEach` functions:
